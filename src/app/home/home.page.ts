@@ -1,5 +1,7 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,46 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  userEmail: string;
 
-  constructor(public firestore: AngularFirestore) {}
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthenticationService
+  ) { }
 
-  add() {
-    console.log("ererz")
-    this.firestore.collection('User').add({
-    	text: "yo"
-    });
+  ngOnInit() {
+    this.authService.userDetails().subscribe(res => {
+      if(res !== null) {
+        this.userEmail = res.email;
+      } else {
+        this.navCtrl.navigateForward('/login');
+      }
+    }, err => {
+      console.log('err', err);
+    })
   }
+
+  logout() {
+    this.authService.logoutUser()
+      .then(res => {
+        console.log(res);
+        this.navCtrl.navigateBack('');
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  show() {
+    this.authService.userDetails().subscribe(res => {
+      if (res !== null) {
+        console.log(res)
+      } else {
+        this.navCtrl.navigateBack('');
+      }
+    }, err => {
+      console.log('err', err);
+    })
+  }
+
 }
