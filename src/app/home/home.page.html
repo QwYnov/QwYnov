@@ -14,23 +14,8 @@
   </ion-header>
 
   <div id="container">
-    <ion-button (click)="show()">Ajouter</ion-button>
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button (click)="toCreationQuestion()">Ajouter une question</ion-button>
   </div>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col text-center>
-          Welcome to Dashboard!
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col text-center>
-          Your Registered EmailID : {{userEmail}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
 </ion-content>
 
 <ion-footer (click)="logout()">

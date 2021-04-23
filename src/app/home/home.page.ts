@@ -39,16 +39,8 @@ export class HomePage {
       })
   }
 
-  show() {
-    this.authService.userDetails().subscribe(res => {
-      if (res !== null) {
-        console.log(res)
-      } else {
-        this.navCtrl.navigateBack('');
-      }
-    }, err => {
-      console.log('err', err);
-    })
+  toCreationQuestion() {
+    this.navCtrl.navigateBack('/question-user');
   }
 
 }
