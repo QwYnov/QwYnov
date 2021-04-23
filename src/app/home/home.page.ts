@@ -1,3 +1,5 @@
+import { Question } from './../model/question.model';
+import { QuizapiService } from './../services/quizapi.service';
 import { AuthenticationService } from './../services/authentication.service';
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -10,10 +12,12 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
   userEmail: string;
+  question: Question;
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private quizapi: QuizapiService
   ) { }
 
   ngOnInit() {
@@ -49,6 +53,10 @@ export class HomePage {
     }, err => {
       console.log('err', err);
     })
+  }
+
+  findQuestion() {
+    this.quizapi.findQuestion().subscribe(x => this.question = x);
   }
 
 }
