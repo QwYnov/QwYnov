@@ -23,11 +23,7 @@ export class AuthenticationService {
               administrator: false,
             })),
           err => reject(err))
-     
-      
     })
-
-    
   }
 
   loginUser(value) {

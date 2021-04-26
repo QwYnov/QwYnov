@@ -1,36 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <ion-button (click)="findQuestion()">Ajouter</ion-button>
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col text-center>
-          Welcome to Dashboard!
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col text-center>
-          Your Registered EmailID : {{userEmail}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+<ion-content>
+  <ion-button (click)="quizApi()">Quiz API</ion-button>
+  <ion-button (click)="quizInternaute()">Quiz internautes</ion-button>
+  <ion-button (click)="mesQuiz()">Mes quiz</ion-button>
 </ion-content>
 
 <ion-footer (click)="logout()">

@@ -1,8 +1,6 @@
 import { Question } from './../model/question.model';
-import { QuizapiService } from './../services/quizapi.service';
 import { AuthenticationService } from './../services/authentication.service';
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -16,8 +14,7 @@ export class HomePage {
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthenticationService,
-    private quizapi: QuizapiService
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -55,8 +52,15 @@ export class HomePage {
     })
   }
 
-  findQuestion() {
-    this.quizapi.findQuestion().subscribe(x => this.question = x);
+  quizApi() {
+    this.navCtrl.navigateForward('/quizapi');
   }
 
+  quizInternaute() {
+    this.navCtrl.navigateForward('/login');
+  }
+
+  mesQuiz() {
+    this.navCtrl.navigateForward('/mesquiz');
+  }
 }

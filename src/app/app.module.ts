@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

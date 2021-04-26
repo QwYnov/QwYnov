@@ -1,9 +1,57 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>quizapi</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-button (click)="findQuestion()"></ion-button>
+  <form (ngSubmit)="quizForms()" [formGroup]="quizForm">
+    <ion-item>
+      <ion-label>Nombre de questions: </ion-label>
+      <ion-input
+        type="number"
+        max="20"
+        min="1"
+        formControlName="question"
+        placeholder="Nombre de question (1 à 20)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Temps par question: </ion-label>
+      <ion-input
+        type="number"
+        max="120"
+        min="0"
+        step="15"
+        formControlName="timer"
+        placeholder="Temps par question (15 à 120)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Difficulté: </ion-label>
+      <ion-select
+        interface="action-sheet"
+        placeholder="Difficulté"
+        formControlName="difficulty"
+      >
+        <ion-select-option value="">Indifférent</ion-select-option>
+        <ion-select-option value="Easy">Facile</ion-select-option>
+        <ion-select-option value="Medium">Moyen</ion-select-option>
+        <ion-select-option value="Hard">Difficile</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Thème: </ion-label>
+      <ion-select
+        interface="action-sheet"
+        placeholder="Thème"
+        formControlName="theme"
+      >
+        <ion-select-option value="">Indifférent</ion-select-option>
+        <ion-select-option value="linux">Linux</ion-select-option>
+        <ion-select-option value="bash">Bash</ion-select-option>
+        <ion-select-option value="docker">Docker</ion-select-option>
+        <ion-select-option value="sql">SQL</ion-select-option>
+        <ion-select-option value="cms">CMS</ion-select-option>
+        <ion-select-option value="code">Code</ion-select-option>
+        <ion-select-option value="devops">DevOps</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button type="submit" block>Créer une partie</ion-button>
+  </form>
 </ion-content>
