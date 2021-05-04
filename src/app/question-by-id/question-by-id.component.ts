@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-question-by-id',
@@ -17,7 +18,7 @@ export class QuestionByIdComponent implements OnInit {
   resultat: number = 0;
   quizId;
   timer: number;
-
+  players;
   intervale;
 
   constructor(
@@ -55,8 +56,8 @@ export class QuestionByIdComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-        this.quizId = params['id']
-      });
+      this.quizId = params['id'];
+    });
   }
 
   ngOnChanges() {
@@ -71,27 +72,35 @@ export class QuestionByIdComponent implements OnInit {
   submit(response) {
     if (response == 'true') {
       this.resultat++;
-      console.log('bon');
-      this.nextQuestion();
-    } else {
-      console.log('pas bon');
-      this.nextQuestion();
     }
+
+    this.nextQuestion();
 
     if (this.nbrQuestion == this.allQuestion.questions.length) {
       this.authService.userDetails().subscribe((res) => {
         this.firestore
           .collection('quizResponse')
-          .add({
-            quizId: this.quizId,
-            player: {
-              id: res.uid,
-              res: this.resultat,
-            },
-          })
-          .then(() => {})
-          .catch((error) => {
-            console.error('Error writing document: ', error);
+          .doc(this.quizId)
+          .valueChanges()
+          .subscribe((doc) => {
+            this.players = doc['player'];
+            this.players.forEach((element) => {
+              if (element.id == res.uid) {
+                Object.assign({}, element);
+                element.res = this.resultat;
+              }
+            });
+
+            this.firestore
+              .collection('quizResponse')
+              .doc(this.quizId)
+              .update({
+                player: this.players
+              })
+              .then()
+              .catch((error) => {
+                console.error('Error writing document: ', error);
+              });
           });
       });
       this.navCtrl.navigateForward('/home');

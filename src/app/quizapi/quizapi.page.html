@@ -52,6 +52,10 @@
         <ion-select-option value="devops">DevOps</ion-select-option>
       </ion-select>
     </ion-item>
+    
+    <ion-button (click)="openModal()" > Inviter un ami </ion-button>
     <ion-button type="submit" block>Créer une partie</ion-button>
-  </form>
+  </form>  
+
+  <p *ngFor="let friend of invitedFriends[0]">{{friend.pseudo}}</p>
 </ion-content>

@@ -1,9 +1,11 @@
+import { InviteFriendsPage } from './../invite-friends/invite-friends.page';
 import { NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { QuizapiService } from './../services/quizapi.service';
 import { Question } from './../model/question.model';
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-quizapi',
@@ -12,12 +14,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizapiPage implements OnInit {
   private quizForm: FormGroup;
+  invitedFriends = [];
 
   constructor(
     private quizapi: QuizapiService,
     private formBuilder: FormBuilder,
     private firestore: AngularFirestore,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public modalController: ModalController
   ) {
     this.quizForm = this.formBuilder.group({
       question: ['10', Validators.required],
@@ -33,13 +37,32 @@ export class QuizapiPage implements OnInit {
     this.quizapi.findQuestion(this.quizForm.value).subscribe((questions) => {
       this.firestore
         .collection('roomQuiz')
-        .add({ questions, timer: this.quizForm.value.timer})
+        .add({ questions, timer: this.quizForm.value.timer, date: new Date() })
         .then((doc) => {
+          this.firestore
+            .collection('quizResponse')
+            .doc(doc.id)
+            .set({
+              player: this.invitedFriends[0],
+              quizId: doc.id,
+              date: new Date(),
+            });
           this.navCtrl.navigateForward(`quiz/?id=${doc.id}`);
         })
         .catch((error) => {
           console.error('Error writing document: ', error);
         });
     });
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: InviteFriendsPage,
+    });
+
+    modal.onDidDismiss().then((data) => {
+      this.invitedFriends.push(data['data']);
+    });
+    return await modal.present();
   }
 }

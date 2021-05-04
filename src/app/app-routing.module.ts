@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'mesquiz',
     loadChildren: () => import('./mesquiz/mesquiz.module').then( m => m.MesquizPageModule)
   },
+  {
+    path: 'invite-friends',
+    loadChildren: () => import('./invite-friends/invite-friends.module').then( m => m.InviteFriendsPageModule)
+  },
 
 
 ];

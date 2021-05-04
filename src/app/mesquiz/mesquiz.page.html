@@ -1,3 +1,3 @@
 <ion-content>
- <p *ngFor="let quiz of myQuiz">{{quiz.quizId}}</p>
+ <p *ngFor="let quiz of myQuiz">{{quiz.date * 1000 | date: 'shortDate'}}</p>
 </ion-content>

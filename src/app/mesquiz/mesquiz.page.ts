@@ -19,7 +19,6 @@ export class MesquizPage implements OnInit {
     this.authService.userDetails().subscribe((user) => {
       this.firestore
         .collection('quizResponse', (ref) =>
-          // ref.where('player.id', '==', res.uid)
           ref.where('player.id', '==', user.uid)
         )
         .valueChanges()

@@ -1,3 +1,4 @@
+import { InviteFriendsPage } from './../invite-friends/invite-friends.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,6 @@ import { QuizapiPage } from './quizapi.page';
     QuizapiPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [QuizapiPage],
+  declarations: [QuizapiPage, InviteFriendsPage],
 })
 export class QuizapiPageModule {}

@@ -19,7 +19,9 @@ export class AuthenticationService {
         .then(
           res => resolve(
             this.firestore.collection('users').doc(res.user.uid).set({
+              id: res.user.uid,
               email: value.email,
+              pseudo: value.pseudo,
               administrator: false,
             })),
           err => reject(err))
