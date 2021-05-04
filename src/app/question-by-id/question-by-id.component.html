@@ -1,0 +1,89 @@
+<ion-content>
+  <p>Thème: {{ allQuestion?.questions[nbrQuestion].category }}</p>
+  <p>Difficulté: {{ allQuestion?.questions[nbrQuestion].difficulty }}</p>
+  <p>{{ allQuestion?.questions[nbrQuestion].question }}</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_a_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_a }}
+        </p></ion-col
+      >
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_b_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_b }}
+        </p></ion-col
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_c_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_c }}
+        </p></ion-col
+      >
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_d_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_d }}
+        </p></ion-col
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_e_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_e }}
+        </p></ion-col
+      >
+      <ion-col
+        ><p
+          (click)="
+            submit(
+              allQuestion?.questions[nbrQuestion].correct_answers
+                .answer_f_correct
+            )
+          "
+        >
+          {{ allQuestion?.questions[nbrQuestion].answers.answer_f }}
+        </p></ion-col
+      >
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="submit()">Submit</ion-button>
+
+  <h1>{{ time | async }}</h1>
+</ion-content>
