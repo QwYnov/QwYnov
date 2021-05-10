@@ -15,29 +15,33 @@ export class HomePage {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.authService.userDetails().subscribe(res => {
-      if(res !== null) {
-        this.userEmail = res.email;
-      } else {
-        this.navCtrl.navigateForward('/login');
+    this.authService.userDetails().subscribe(
+      (res) => {
+        if (res !== null) {
+          this.userEmail = res.email;
+        } else {
+          this.navCtrl.navigateForward('/login');
+        }
+      },
+      (err) => {
+        console.log('err', err);
       }
-    }, err => {
-      console.log('err', err);
-    })
+    );
   }
 
   logout() {
-    this.authService.logoutUser()
-      .then(res => {
+    this.authService
+      .logoutUser()
+      .then((res) => {
         console.log(res);
         this.navCtrl.navigateBack('');
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
-      })
+      });
   }
 
   toCreationQuestion() {
