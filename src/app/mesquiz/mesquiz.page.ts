@@ -1,3 +1,4 @@
+import { NavController } from '@ionic/angular';
 import { AuthenticationService } from './../services/authentication.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
@@ -10,21 +11,49 @@ import { Component, OnInit } from '@angular/core';
 export class MesquizPage implements OnInit {
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private navCtrl: NavController
   ) {}
 
-  myQuiz;
+  myQuiz = [];
+
+  logout() {
+    this.authService
+      .logoutUser()
+      .then((res) => {
+        this.navCtrl.navigateBack('');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   ngOnInit() {
     this.authService.userDetails().subscribe((user) => {
       this.firestore
-        .collection('quizResponse', (ref) =>
-          ref.where('player.id', '==', user.uid)
-        )
+        .collection('quizResponse')
         .valueChanges()
         .subscribe((res) => {
-          this.myQuiz = res
+          res.forEach((quiz) => {
+            quiz['player'].forEach((element) => {
+              if (element.id == user.uid) {
+                if (element.res) {
+                  this.myQuiz.push({ quiz, isRep: true });
+                } else {
+                  this.myQuiz.push({ quiz, isRep: false });
+                }
+              }
+            });
+          });
         });
     });
+  }
+
+  goToQuiz(id) {
+    this.navCtrl.navigateForward(`quiz/?id=${id}`);
+  }
+
+  goToRes(id) {
+    this.navCtrl.navigateForward(`res-quiz/?id=${id}`);
   }
 }

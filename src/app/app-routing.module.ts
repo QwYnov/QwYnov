@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'quiz/:id',
     loadChildren: () => import('./quiz/quiz.module').then( m => m.QuizPageModule)
-  },  {
+  },
+  {
     path: 'mesquiz',
     loadChildren: () => import('./mesquiz/mesquiz.module').then( m => m.MesquizPageModule)
   },
@@ -38,6 +39,14 @@ const routes: Routes = [
     path: 'invite-friends',
     loadChildren: () => import('./invite-friends/invite-friends.module').then( m => m.InviteFriendsPageModule)
   },
+  {
+    path: 'res-quiz/:id',
+    loadChildren: () => import('./res-quiz/res-quiz.module').then( m => m.ResQuizPageModule)
+  },  {
+    path: 'quiz-internaute',
+    loadChildren: () => import('./quiz-internaute/quiz-internaute.module').then( m => m.QuizInternautePageModule)
+  },
+
 
 
 ];

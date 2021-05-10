@@ -57,7 +57,7 @@ export class HomePage {
   }
 
   quizInternaute() {
-    this.navCtrl.navigateForward('/login');
+    this.navCtrl.navigateForward('/quiz-internaute');
   }
 
   mesQuiz() {
