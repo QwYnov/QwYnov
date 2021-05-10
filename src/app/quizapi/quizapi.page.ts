@@ -32,6 +32,7 @@ export class QuizapiPage implements OnInit {
   }
 
   ngOnInit() {}
+  
 
   quizForms() {
     this.quizapi.findQuestion(this.quizForm.value).subscribe((questions) => {
