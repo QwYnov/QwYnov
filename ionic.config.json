@@ -1,7 +1,8 @@
 {
   "name": "QwYnov",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular",
   "proxies": [
