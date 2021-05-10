@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">250036152599-j93o9ucls2j9uomeel5ldgvcla61k3te.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">250036152599</string>
+    <string name="google_api_key" translatable="false">AIzaSyBU6Vks6kEbn8cjZ8Q2k-a5rgj0xn9l7mw</string>
+    <string name="google_app_id" translatable="false">1:250036152599:android:0909fdbe278ca3e17def52</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBU6Vks6kEbn8cjZ8Q2k-a5rgj0xn9l7mw</string>
+    <string name="google_storage_bucket" translatable="false">qwynov.appspot.com</string>
+    <string name="project_id" translatable="false">qwynov</string>
+</resources>

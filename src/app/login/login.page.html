@@ -1,4 +1,4 @@
-<ion-content class="ion-padding">
+<ion-content>
   <form class="form" [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
 
     <ion-item>
@@ -32,6 +32,6 @@
     <label class="error-message">{{errorMessage}}</label>
   </form>
   <p class="go-to-register">
-    No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
+    Pas encore de compte? <a (click)="goToRegisterPage()">Créer un compte</a>
   </p>
 </ion-content>
