@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
+
     pathMatch: 'full',
   },
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
+  },
+  {
+    path: 'question-user',
+    loadChildren: () => import('./question-user/question-user.module').then( m => m.QuestionUserPageModule)
   },
   {
     path: 'quizapi',
@@ -42,13 +47,11 @@ const routes: Routes = [
   {
     path: 'res-quiz/:id',
     loadChildren: () => import('./res-quiz/res-quiz.module').then( m => m.ResQuizPageModule)
-  },  {
+  },
+  {
     path: 'quiz-internaute',
     loadChildren: () => import('./quiz-internaute/quiz-internaute.module').then( m => m.QuizInternautePageModule)
   },
-
-
-
 ];
 
 @NgModule({
