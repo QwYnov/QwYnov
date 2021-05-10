@@ -4,7 +4,7 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
-    "ng": "ng",
+    "ng": "ng -- --proxy-config src/proxy.conf.json",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -22,7 +22,7 @@
     "@angular/router": "~11.2.0",
     "@capacitor/core": "2.4.7",
     "@ionic/angular": "^5.5.2",
-    "firebase": "^8.3.3",
+    "firebase": "^8.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>invite-friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formFriend">
+    <ion-input
+      type="text"
+      formControlName="search"
+      placeholder="Rechercher un(e) ami(e)"
+      (ionChange)="searchFriend(this.formFriend.value)"
+    ></ion-input>
+  </form>
+
+  <ion-row *ngFor="let friend of searchingFriends">
+    <ion-col>{{friend.pseudo}}</ion-col>
+    <ion-col
+      ><ion-button (click)="addFriend(friend)"
+        >Ajouter</ion-button
+      ></ion-col
+    >
+  </ion-row>
+
+
+  <p>Amis ajouté</p>
+  <ion-row *ngFor="let friend of invitedFriend">
+    <ion-col>{{friend.pseudo}}</ion-col>
+    <ion-col
+      ><ion-button (click)="removeFriend(friend)"
+        >Supprimer</ion-button
+      ></ion-col
+    >
+  </ion-row>
+
+
+  <ion-button (click)="dismiss()">Valider</ion-button>
+</ion-content>

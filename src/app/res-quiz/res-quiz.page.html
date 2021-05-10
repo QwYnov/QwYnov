@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>resQuiz</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>{{quiz['date'] * 1000 | date: 'dd/MM'}}</p>
+  <ul *ngIf="isFinish != players">
+    <li *ngFor="let player of quiz['player']">
+      {{player.pseudo}}
+      <ion-icon name="checkmark" *ngIf="player.res"></ion-icon>
+    </li>
+  </ul>
+  <ul *ngIf="isFinish == players">
+    <li *ngFor="let player of res; let index = index">
+      {{index + 1}} - {{player.pseudo}}
+    </li>
+  </ul>
+</ion-content>

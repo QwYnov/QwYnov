@@ -1,6 +1,6 @@
+import { Question } from './../model/question.model';
 import { AuthenticationService } from './../services/authentication.service';
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -10,6 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
   userEmail: string;
+  question: Question;
 
   constructor(
     private navCtrl: NavController,
@@ -43,4 +44,15 @@ export class HomePage {
     this.navCtrl.navigateBack('/question-user');
   }
 
+  quizApi() {
+    this.navCtrl.navigateForward('/quizapi');
+  }
+
+  quizInternaute() {
+    this.navCtrl.navigateForward('/quiz-internaute');
+  }
+
+  mesQuiz() {
+    this.navCtrl.navigateForward('/mesquiz');
+  }
 }
