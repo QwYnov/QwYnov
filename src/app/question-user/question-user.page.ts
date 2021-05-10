@@ -28,7 +28,6 @@ export class QuestionUserPage implements OnInit {
       answer4: ['', Validators.required],
       goodAnswer4: [false],
       difficulty: ['easy'],
-      theme: ['', Validators.required],
       valide: false,
     });
   }
@@ -57,5 +56,9 @@ export class QuestionUserPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward(`home`);
   }
 }

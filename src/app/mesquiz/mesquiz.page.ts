@@ -17,23 +17,13 @@ export class MesquizPage implements OnInit {
 
   myQuiz = [];
 
-  logout() {
-    this.authService
-      .logoutUser()
-      .then((res) => {
-        this.navCtrl.navigateBack('');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   ngOnInit() {
     this.authService.userDetails().subscribe((user) => {
       this.firestore
         .collection('quizResponse')
         .valueChanges()
         .subscribe((res) => {
+          this.myQuiz = [];
           res.forEach((quiz) => {
             quiz['player'].forEach((element) => {
               if (element.id == user.uid) {
@@ -55,5 +45,9 @@ export class MesquizPage implements OnInit {
 
   goToRes(id) {
     this.navCtrl.navigateForward(`res-quiz/?id=${id}`);
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward(`home`);
   }
 }

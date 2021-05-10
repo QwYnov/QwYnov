@@ -6,20 +6,20 @@
           <p>{{quiz.quiz.date * 1000 | date: 'dd/MM'}}</p>
         </ion-col>
         <ion-col>
-          <button (click)="goToQuiz(quiz.quiz.quizId)" *ngIf="!quiz.isRep">
+          <ion-button (click)="goToQuiz(quiz.quiz.quizId)" *ngIf="!quiz.isRep">
             Go
-          </button>
-          <button (click)="goToRes(quiz.quiz.quizId)" *ngIf="quiz.isRep">
-            Res
-          </button>
+          </ion-button>
+          <ion-button (click)="goToRes(quiz.quiz.quizId)" *ngIf="quiz.isRep">
+            Résultat
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-</ion-content>
 
-<ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
-  </ion-toolbar>
-</ion-footer>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

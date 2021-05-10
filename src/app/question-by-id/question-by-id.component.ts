@@ -81,9 +81,9 @@ export class QuestionByIdComponent implements OnInit {
         this.firestore
           .collection('quizResponse')
           .doc(this.quizId)
-          .valueChanges()
+          .get()
           .subscribe((doc) => {
-            this.players = doc['player'];
+            this.players = doc.data()['player'];
             this.players.forEach((element) => {
               if (element.id == res.uid) {
                 Object.assign({}, element);
@@ -95,7 +95,7 @@ export class QuestionByIdComponent implements OnInit {
               .collection('quizResponse')
               .doc(this.quizId)
               .update({
-                player: this.players
+                player: this.players,
               })
               .then()
               .catch((error) => {

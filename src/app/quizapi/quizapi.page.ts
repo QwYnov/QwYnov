@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { InviteFriendsPage } from './../invite-friends/invite-friends.page';
 import { NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -13,7 +14,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./quizapi.page.scss'],
 })
 export class QuizapiPage implements OnInit {
-  private quizForm: FormGroup;
+  quizForm: FormGroup;
   invitedFriends = [];
 
   constructor(
@@ -59,11 +60,17 @@ export class QuizapiPage implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: InviteFriendsPage,
+      componentProps: this.invitedFriends
     });
 
     modal.onDidDismiss().then((data) => {
+      this.invitedFriends = [];
       this.invitedFriends.push(data['data']);
     });
     return await modal.present();
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward(`home`);
   }
 }

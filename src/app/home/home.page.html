@@ -1,12 +1,57 @@
 <ion-content>
-  <ion-button (click)="quizApi()">Quiz API</ion-button>
-  <ion-button (click)="quizInternaute()">Quiz internautes</ion-button>
-  <ion-button (click)="mesQuiz()">Mes quiz</ion-button>
-  <ion-button (click)="toCreationQuestion()">Ajouter une question</ion-button>
-</ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-card (click)="quizApi()" style="height:80%">
+          <ion-card-header>
+            <ion-card-title><ion-icon name="globe-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content >
+            Quiz API
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card (click)="quizInternaute()" style="height:80%">
+          <ion-card-header>
+            <ion-card-title><ion-icon name="people-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content >
+            Quiz internautes
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-row>
+    </ion-row>
+      <ion-col>
+        <ion-card (click)="mesQuiz()" style="height:80%">
+          <ion-card-header>
+            <ion-card-title><ion-icon name="person-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content >
+            Mes quiz
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col><ion-card (click)="toCreationQuestion()" style="height:80%">
+        <ion-card-header>
+          <ion-card-title><ion-icon name="help-outline"></ion-icon></ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content >
+          Ajouter une question
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
-  </ion-toolbar>
-</ion-footer>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="exit-outline" (click)="logout()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

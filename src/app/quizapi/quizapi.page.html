@@ -57,5 +57,14 @@
     <ion-button type="submit" block>Créer une partie</ion-button>
   </form>  
 
-  <p *ngFor="let friend of invitedFriends[0]">{{friend.pseudo}}</p>
+  <div *ngIf="invitedFriends[0]">
+    <p>Amis dans la room:</p>
+    <p *ngFor="let friend of invitedFriends[0]">- {{friend.pseudo}}</p>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

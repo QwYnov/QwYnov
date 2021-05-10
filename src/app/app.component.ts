@@ -1,6 +1,6 @@
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from './services/authentication.service';
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   constructor() {}
-  
 }

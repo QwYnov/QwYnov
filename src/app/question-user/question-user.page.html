@@ -61,11 +61,12 @@
       </ion-select>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Thème : </ion-label>
-      <ion-input type="text" formControlName="theme" name="theme"></ion-input>
-    </ion-item>
-
     <ion-button type="submit" block>Ajouté la question</ion-button>
   </form>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

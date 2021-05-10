@@ -41,7 +41,7 @@ export class HomePage {
   }
 
   toCreationQuestion() {
-    this.navCtrl.navigateBack('/question-user');
+    this.navCtrl.navigateForward('/question-user');
   }
 
   quizApi() {
