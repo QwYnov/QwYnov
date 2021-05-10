@@ -2,6 +2,14 @@ import { Question } from './../model/question.model';
 import { AuthenticationService } from './../services/authentication.service';
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import {
+  Plugins,
+  PushNotification,
+  PushNotificationToken,
+  PushNotificationActionPerformed,
+} from '@capacitor/core';
+
+const { PushNotifications } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -15,29 +23,70 @@ export class HomePage {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.authService.userDetails().subscribe(res => {
-      if(res !== null) {
-        this.userEmail = res.email;
-      } else {
-        this.navCtrl.navigateForward('/login');
+    this.authService.userDetails().subscribe(
+      (res) => {
+        if (res !== null) {
+          this.userEmail = res.email;
+        } else {
+          this.navCtrl.navigateForward('/login');
+        }
+      },
+      (err) => {
+        console.log('err', err);
       }
-    }, err => {
-      console.log('err', err);
-    })
+    );
+
+    PushNotifications.requestPermission().then( result => {
+      if (result.granted) {
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        // Show some error
+      }
+    });
+
+    // On success, we should be able to receive notifications
+    PushNotifications.addListener('registration',
+      (token: PushNotificationToken) => {
+        alert('Push registration success, token: ' + token.value);
+      }
+    );
+
+    // Some issue with our setup and push will not work
+    PushNotifications.addListener('registrationError',
+      (error: any) => {
+        alert('Error on registration: ' + JSON.stringify(error));
+      }
+    );
+
+    // Show us the notification payload if the app is open on our device
+    PushNotifications.addListener('pushNotificationReceived',
+      (notification: PushNotification) => {
+        alert('Push received: ' + JSON.stringify(notification));
+      }
+    );
+
+    // Method called when tapping on a notification
+    PushNotifications.addListener('pushNotificationActionPerformed',
+      (notification: PushNotificationActionPerformed) => {
+        alert('Push action performed: ' + JSON.stringify(notification));
+      }
+    );
   }
 
   logout() {
-    this.authService.logoutUser()
-      .then(res => {
+    this.authService
+      .logoutUser()
+      .then((res) => {
         console.log(res);
         this.navCtrl.navigateBack('');
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
-      })
+      });
   }
 
   toCreationQuestion() {
