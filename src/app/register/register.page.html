@@ -3,7 +3,7 @@
 
     <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
+      <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.email">
@@ -40,7 +40,12 @@
       </ng-container>
     </div>
 
-    <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
+    <ion-row style="text-align: center !important;">
+      <ion-col>
+        <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
+      </ion-col>
+    </ion-row>
+
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>

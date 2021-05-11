@@ -23,8 +23,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Difficulté: </ion-label>
-      <ion-select
-        interface="action-sheet"
+      <ion-select okText="Valildé" cancelText="Annulé"
         placeholder="Difficulté"
         formControlName="difficulty"
       >
@@ -35,8 +34,13 @@
       </ion-select>
     </ion-item>
     
-    <ion-button (click)="openModal()" > Inviter un ami </ion-button>
-    <ion-button type="submit" block>Créer une partie</ion-button>
+    <ion-row style="text-align: center !important;">
+      <ion-col>
+        <ion-button (click)="openModal()" > Inviter un ami </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button type="submit" block>Créer une partie</ion-button></ion-col>
+    </ion-row>
   </form>  
   
   <div *ngIf="invitedFriends[0]">

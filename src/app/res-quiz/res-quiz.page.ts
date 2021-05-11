@@ -1,3 +1,4 @@
+import { NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ResQuizPage implements OnInit {
   constructor(
     private firestore: AngularFirestore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private navCtrl: NavController
   ) {}
 
   quiz = {};
@@ -41,6 +43,10 @@ export class ResQuizPage implements OnInit {
           }
         });
     });
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward(`home`);
   }
 }
  

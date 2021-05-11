@@ -54,14 +54,18 @@
 
     <ion-item>
       <ion-label>Difficulté: </ion-label>
-      <ion-select okText="Okay" cancelText="Annulé" formControlName="difficulty">
+      <ion-select okText="Valildé" cancelText="Annulé" formControlName="difficulty">
         <ion-select-option value="easy">Facile</ion-select-option>
         <ion-select-option value="medium">Moyen</ion-select-option>
         <ion-select-option value="hard">Dur</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-button type="submit" block>Ajouté la question</ion-button>
+    <ion-row style="text-align: center !important;">
+      <ion-col>
+        <ion-button type="submit" block>Ajouté la question</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
