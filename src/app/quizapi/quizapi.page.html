@@ -23,11 +23,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Difficulté: </ion-label>
-      <ion-select
-        interface="action-sheet"
-        placeholder="Difficulté"
-        formControlName="difficulty"
-      >
+      <ion-select okText="Valildé" cancelText="Annulé" formControlName="difficulty">
         <ion-select-option value="">Indifférent</ion-select-option>
         <ion-select-option value="Easy">Facile</ion-select-option>
         <ion-select-option value="Medium">Moyen</ion-select-option>
@@ -37,11 +33,7 @@
 
     <ion-item>
       <ion-label>Thème: </ion-label>
-      <ion-select
-        interface="action-sheet"
-        placeholder="Thème"
-        formControlName="theme"
-      >
+      <ion-select okText="Valildé" cancelText="Annulé" formControlName="theme">
         <ion-select-option value="">Indifférent</ion-select-option>
         <ion-select-option value="linux">Linux</ion-select-option>
         <ion-select-option value="bash">Bash</ion-select-option>
@@ -53,7 +45,7 @@
       </ion-select>
     </ion-item>
 
-    <ion-row style="text-align: center !important;">
+    <ion-row style="text-align: center !important">
       <ion-col>
         <ion-button (click)="openModal()">Inviter un ami </ion-button>
       </ion-col>

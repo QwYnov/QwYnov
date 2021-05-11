@@ -1,20 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>resQuiz</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <p>{{quiz['date'] * 1000 | date: 'dd/MM'}}</p>
   <ul *ngIf="isFinish != players">
     <li *ngFor="let player of quiz['player']">
-      {{player.pseudo}} (score: {{player.res}})
+      {{player.pseudo}}
       <ion-icon name="checkmark" *ngIf="player.res"></ion-icon>
     </li>
   </ul>
   <ul *ngIf="isFinish == players">
     <li *ngFor="let player of res; let index = index">
-      {{index + 1}} - {{player.pseudo}} (score: {{player.res}})
+      {{index + 1}} - {{player.pseudo}}
+      <span *ngIf="player.res">(score: {{player.res}})</span>
     </li>
   </ul>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

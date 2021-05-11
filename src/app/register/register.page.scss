@@ -1,10 +1,14 @@
 ion-content {
-    --padding-top: 50%;
+    --padding-top: 30%;
     --padding-start: 10%;
     width: 90%;
 }
-ion-content {
-    --padding-top: 50%;
-    --padding-start: 10%;
-    width: 90%;
+
+ion-img {
+    padding-top: 10%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
