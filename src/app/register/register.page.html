@@ -1,14 +1,26 @@
-<ion-content class="ion-padding" >
-  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+<ion-row>
+  <ion-col style="text-align: center">
+    <ion-img src="../../assets/img/logo_blanc.png"></ion-img>
+  </ion-col>
+</ion-row>
 
+<ion-content style="
+background-color: #050934" >
+  <form
+    class="form"
+    [formGroup]="validations_form"
+    (ngSubmit)="tryRegister(validations_form.value)"
+  >
     <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.email">
-        <div class="error-message"
-          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)"
+        >
           {{ validation.message }}
         </div>
       </ng-container>
@@ -16,12 +28,19 @@
 
     <ion-item>
       <ion-label position="floating" color="primary">Pseudo</ion-label>
-      <ion-input type="text" formControlName="pseudo" class="form-controll" required></ion-input>
+      <ion-input
+        type="text"
+        formControlName="pseudo"
+        class="form-controll"
+        required
+      ></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.pseudo">
-        <div class="error-message"
-          *ngIf="validations_form.get('pseudo').hasError(validation.type) && (validations_form.get('pseudo').dirty || validations_form.get('pseudo').touched)">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('pseudo').hasError(validation.type) && (validations_form.get('pseudo').dirty || validations_form.get('pseudo').touched)"
+        >
           {{ validation.message }}
         </div>
       </ng-container>
@@ -29,25 +48,40 @@
 
     <ion-item>
       <ion-label position="floating" color="primary">Password</ion-label>
-      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+      <ion-input
+        type="password"
+        formControlName="password"
+        class="form-controll"
+        required
+      ></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.password">
-        <div class="error-message"
-          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)"
+        >
           {{ validation.message }}
         </div>
       </ng-container>
     </div>
 
-    <ion-row style="text-align: center !important;">
+    <ion-row style="text-align: center !important">
       <ion-col>
-        <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
+        <ion-button
+          class="submit-btn"
+          type="submit"
+          [disabled]="!validations_form.valid"
+          >Register</ion-button
+        >
       </ion-col>
     </ion-row>
 
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
-  <p class="go-to-login">Vous avez déjà un compte? <a (click)="goLoginPage()">Essayez de vous connecter.</a></p>
+  <p class="go-to-login">
+    Vous avez déjà un compte?
+    <a (click)="goLoginPage()">Essayez de vous connecter.</a>
+  </p>
 </ion-content>
