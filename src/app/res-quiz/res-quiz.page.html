@@ -8,13 +8,13 @@
   <p>{{quiz['date'] * 1000 | date: 'dd/MM'}}</p>
   <ul *ngIf="isFinish != players">
     <li *ngFor="let player of quiz['player']">
-      {{player.pseudo}}
+      {{player.pseudo}} (score: {{player.res}})
       <ion-icon name="checkmark" *ngIf="player.res"></ion-icon>
     </li>
   </ul>
   <ul *ngIf="isFinish == players">
     <li *ngFor="let player of res; let index = index">
-      {{index + 1}} - {{player.pseudo}}
+      {{index + 1}} - {{player.pseudo}} (score: {{player.res}})
     </li>
   </ul>
 </ion-content>

@@ -1,8 +1,8 @@
 {
-    "/api/*": {
-      "target": "https://quizapi.io/api",
-      "changeOrigin": true,
-      "secure": false,
-      "pathRewrite": {"^/api" : ""}
-    }
+  "/api/*": {
+    "target": "https://quizapi.io/api",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {"^/api" : ""}
   }
+}

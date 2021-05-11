@@ -13,7 +13,7 @@ export class QuizPage implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  private question
+  question
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {

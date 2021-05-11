@@ -16,6 +16,6 @@ import { InviteFriendsPage } from './invite-friends.page';
     InviteFriendsPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [InviteFriendsPage]
+  //declarations: [InviteFriendsPage]
 })
 export class InviteFriendsPageModule {}

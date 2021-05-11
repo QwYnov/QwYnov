@@ -52,10 +52,16 @@
         <ion-select-option value="devops">DevOps</ion-select-option>
       </ion-select>
     </ion-item>
-    
-    <ion-button (click)="openModal()" > Inviter un ami </ion-button>
-    <ion-button type="submit" block>Créer une partie</ion-button>
-  </form>  
+
+    <ion-row style="text-align: center !important;">
+      <ion-col>
+        <ion-button (click)="openModal()">Inviter un ami </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button type="submit" block>Créer une partie</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 
   <div *ngIf="invitedFriends[0]">
     <p>Amis dans la room:</p>
