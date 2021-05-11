@@ -1,7 +1,5 @@
-import { Question } from './../model/question.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +8,23 @@ export class QuizapiService {
   readonly apiUrl = 'https://quizapi.io/api/v1/questions';
   readonly key = '04XheGoJMTgiruEkRmJ2vhIek1fzsyCGK0UNC0kW';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HTTP) {}
 
-  findQuestion(value): Observable<Question> {
+  findQuestion(value) {
     if (value.theme === 'default') {
-      return this.http.get<Question>(
-        `/api/v1/questions/?apiKey=${this.key}&difficulty=${value.difficulty}&limit=${value.question}`
-      );
+      return this.http
+        .get(
+          `${this.apiUrl}/?apiKey=${this.key}&difficulty=${value.difficulty}&limit=${value.question}`,
+          {},
+          {}
+        )
     } else {
-      return this.http.get<Question>(
-        `/api/v1/questions/?apiKey=${this.key}&category=${value.theme}&difficulty=${value.difficulty}&limit=${value.question}`
-      );
+      return this.http
+        .get(
+          `${this.apiUrl}/?apiKey=${this.key}&category=${value.theme}&difficulty=${value.difficulty}&limit=${value.question}`,
+          {},
+          {}
+        )
     }
   }
 }

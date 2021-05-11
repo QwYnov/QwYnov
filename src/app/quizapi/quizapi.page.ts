@@ -36,11 +36,13 @@ export class QuizapiPage implements OnInit {
   
 
   quizForms() {
-    this.quizapi.findQuestion(this.quizForm.value).subscribe((questions) => {
+    this.quizapi.findQuestion(this.quizForm.value).then((questionData) => {
+      let questions = JSON.parse(questionData.data)
       this.firestore
         .collection('roomQuiz')
         .add({ questions, timer: this.quizForm.value.timer, date: new Date() })
         .then((doc) => {
+          console.log(doc.id)
           this.firestore
             .collection('quizResponse')
             .doc(doc.id)
