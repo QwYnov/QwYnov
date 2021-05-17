@@ -20,7 +20,7 @@ export class MesquizPage implements OnInit {
   ngOnInit() {
     this.authService.userDetails().subscribe((user) => {
       this.firestore
-        .collection('quizResponse')
+        .collection('quizResponse', ref => ref.orderBy('date', 'desc'))
         .valueChanges()
         .subscribe((res) => {
           this.myQuiz = [];
