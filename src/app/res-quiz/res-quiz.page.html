@@ -1,5 +1,10 @@
+<ion-row>
+  <ion-col style="text-align: center">
+    <ion-img src="../../assets/img/logo_blanc.png"></ion-img>
+  </ion-col>
+</ion-row>
+
 <ion-content>
-  <p>{{quiz['date'] * 1000 | date: 'dd/MM'}}</p>
   <ul *ngIf="isFinish != players">
     <li *ngFor="let player of quiz['player']">
       {{player.pseudo}}

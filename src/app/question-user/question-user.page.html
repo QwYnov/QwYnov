@@ -1,76 +1,125 @@
+<ion-row>
+  <ion-col style="text-align: center">
+    <ion-img src="../../assets/img/logo_blanc.png"></ion-img>
+  </ion-col>
+</ion-row>
+
 <ion-content>
   <form [formGroup]="formQuestion" (ngSubmit)="submitQuestion()">
-    <ion-item>
-      <ion-textarea formControlName="question" name="question" placeholder="Question"></ion-textarea>
-    </ion-item>
+    <div class="form">
+      <ion-item>
+        <ion-textarea
+          formControlName="question"
+          name="question"
+          placeholder="Question"
+        ></ion-textarea>
+      </ion-item>
 
-    <ion-item>
-      <ion-row>
-        <ion-col size="11">
-          <ion-input type="text" formControlName="answer1" name="answer1" placeholder="Résponse 1"></ion-input>
-        </ion-col>
+      <ion-item>
+        <ion-row>
+          <ion-col size="10">
+            <ion-input
+              type="text"
+              formControlName="answer1"
+              name="answer1"
+              placeholder="Résponse 1"
+            ></ion-input>
+          </ion-col>
 
-        <ion-col size="1">
-          <ion-checkbox formControlName="goodAnswer1" name="goodAnswer1"></ion-checkbox>
-        </ion-col>
-      </ion-row>
-    </ion-item>
+          <ion-col size="1">
+            <ion-checkbox
+              formControlName="goodAnswer1"
+              name="goodAnswer1"
+            ></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-    <ion-item>
-      <ion-row>
-        <ion-col size="11">
-          <ion-input type="text" formControlName="answer2" name="answer2" placeholder="Réponse 2"></ion-input>
-        </ion-col>
+      <ion-item>
+        <ion-row>
+          <ion-col size="10">
+            <ion-input
+              type="text"
+              formControlName="answer2"
+              name="answer2"
+              placeholder="Réponse 2"
+            ></ion-input>
+          </ion-col>
 
-        <ion-col size="1">
-          <ion-checkbox formControlName="goodAnswer2" name="goodAnswer2"></ion-checkbox>
-        </ion-col>
-      </ion-row>
-    </ion-item>
+          <ion-col size="1">
+            <ion-checkbox
+              formControlName="goodAnswer2"
+              name="goodAnswer2"
+            ></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-    <ion-item>
-      <ion-row>
-        <ion-col size="11">
-          <ion-input type="text" formControlName="answer3" name="answer3" placeholder="Réponse 3"></ion-input>
-        </ion-col>
+      <ion-item>
+        <ion-row>
+          <ion-col size="10">
+            <ion-input
+              type="text"
+              formControlName="answer3"
+              name="answer3"
+              placeholder="Réponse 3"
+            ></ion-input>
+          </ion-col>
 
-        <ion-col size="1">
-          <ion-checkbox formControlName="goodAnswer3" name="goodAnswer3"></ion-checkbox>
-        </ion-col>
-      </ion-row>
-    </ion-item>
+          <ion-col size="1">
+            <ion-checkbox
+              formControlName="goodAnswer3"
+              name="goodAnswer3"
+            ></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-    <ion-item>
-      <ion-row>
-        <ion-col size="11">
-          <ion-input type="text" formControlName="answer4" name="answer4" placeholder="Réponse 4"></ion-input>
-        </ion-col>
+      <ion-item>
+        <ion-row>
+          <ion-col size="10">
+            <ion-input
+              type="text"
+              formControlName="answer4"
+              name="answer4"
+              placeholder="Réponse 4"
+            ></ion-input>
+          </ion-col>
 
-        <ion-col size="1">
-          <ion-checkbox formControlName="goodAnswer4" name="goodAnswer4"></ion-checkbox>
-        </ion-col>
-      </ion-row>
-    </ion-item>
+          <ion-col size="1">
+            <ion-checkbox
+              formControlName="goodAnswer4"
+              name="goodAnswer4"
+            ></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Difficulté: </ion-label>
-      <ion-select okText="Valildé" cancelText="Annulé" formControlName="difficulty">
-        <ion-select-option value="easy">Facile</ion-select-option>
-        <ion-select-option value="medium">Moyen</ion-select-option>
-        <ion-select-option value="hard">Dur</ion-select-option>
-      </ion-select>
-    </ion-item>
+      <ion-item>
+        <ion-label>Difficulté: </ion-label>
+        <ion-select
+          okText="Valildé"
+          cancelText="Annulé"
+          formControlName="difficulty"
+        >
+          <ion-select-option value="easy">Facile</ion-select-option>
+          <ion-select-option value="medium">Moyen</ion-select-option>
+          <ion-select-option value="hard">Dur</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
 
-    <ion-row style="text-align: center !important;">
+    <ion-row style="text-align: center !important">
       <ion-col>
         <ion-button type="submit" block>Ajouté la question</ion-button>
       </ion-col>
     </ion-row>
   </form>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+
 </ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

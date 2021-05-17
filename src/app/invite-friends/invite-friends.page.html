@@ -1,9 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>invite-friends</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <form [formGroup]="formFriend">
     <ion-input
@@ -17,16 +11,13 @@
   <ion-row *ngFor="let friend of searchingFriends">
     <ion-col>{{friend.pseudo}}</ion-col>
     <ion-col
-      ><ion-button (click)="addFriend(friend)"
-        >Ajouter</ion-button
-      ></ion-col
+      ><ion-button (click)="addFriend(friend)">Ajouter</ion-button></ion-col
     >
   </ion-row>
 
-
   <p>Amis ajouté</p>
   <ion-row *ngFor="let friend of invitedFriend">
-    <ion-col>{{friend.pseudo}}</ion-col>
+    <ion-col class="pseudoPlayer">- {{friend.pseudo}}</ion-col>
     <ion-col
       ><ion-button (click)="removeFriend(friend)"
         >Supprimer</ion-button
@@ -34,9 +25,12 @@
     >
   </ion-row>
 
-
-  <ion-button (click)="dismiss()">Valider</ion-button>
-
-  
-  <ion-button (click)="close()">Ferme</ion-button>
+  <ion-row style="text-align: center">
+    <ion-col>
+      <ion-button (click)="dismiss()">Valider</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="close()">Fermer</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
