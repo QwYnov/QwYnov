@@ -1,5 +1,14 @@
+<ion-row>
+  <ion-col style="text-align: center">
+    <ion-img src="../../assets/img/logo_blanc.png"></ion-img>
+  </ion-col>
+</ion-row>
+
+
 <ion-content>
-  <form (ngSubmit)="quizForms()" [formGroup]="quizForm">
+  <form (ngSubmit)="quizForms()" [formGroup]="quizForm"
+  >
+  <div class="form">
     <ion-item>
       <ion-label>Nombre de questions: </ion-label>
       <ion-input
@@ -44,25 +53,29 @@
         <ion-select-option value="devops">DevOps</ion-select-option>
       </ion-select>
     </ion-item>
+  </div>
+    
 
     <ion-row style="text-align: center !important">
       <ion-col>
         <ion-button (click)="openModal()">Inviter un ami </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button type="submit" block>Créer une partie</ion-button>
+        <ion-button *ngIf="invitedFriends[0]" type="submit" block>Créer une partie</ion-button>
+        <ion-button *ngIf="!invitedFriends[0]" disabled type="submit" block>Créer une partie</ion-button>
       </ion-col>
     </ion-row>
   </form>
 
-  <div *ngIf="invitedFriends[0]">
+  <div *ngIf="invitedFriends[0]" style="color: white;">
     <p>Amis dans la room:</p>
     <p *ngFor="let friend of invitedFriends[0]">- {{friend.pseudo}}</p>
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

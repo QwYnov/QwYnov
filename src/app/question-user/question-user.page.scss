@@ -1,0 +1,28 @@
+ion-img {
+  padding-top: 10%;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ion-content {
+  --padding-top: 30%;
+  --padding-start: 10%;
+  width: 90%;
+  --ion-background-color: #050934;
+  --ion-color-step-250: white;
+  --ion-item-background: white;
+  --ion-text-color: #050934;
+}
+
+.form {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+ion-checkbox {
+  --border-color: black;
+}

@@ -4,8 +4,7 @@
   </ion-col>
 </ion-row>
 
-<ion-content style="
-background-color: #050934" >
+<ion-content>
   <form
     class="form"
     [formGroup]="validations_form"
@@ -80,7 +79,7 @@ background-color: #050934" >
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
-  <p class="go-to-login">
+  <p class="go-to-login" style="color: white;">
     Vous avez déjà un compte?
     <a (click)="goLoginPage()">Essayez de vous connecter.</a>
   </p>
