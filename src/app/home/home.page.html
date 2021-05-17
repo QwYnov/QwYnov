@@ -1,8 +1,14 @@
+<ion-row>
+  <ion-col style="text-align: center">
+    <ion-img src="../../assets/img/logo_blanc.png"></ion-img>
+  </ion-col>
+</ion-row>
+
 <ion-content>
-  <ion-grid class="ion-text-center">
+  <ion-grid class="ion-text-center grid">
     <ion-row>
       <ion-col>
-        <ion-card (click)="quizApi()" style="height:80%">
+        <ion-card (click)="quizApi()" class="card">
           <ion-card-header>
             <ion-card-title><ion-icon name="globe-outline"></ion-icon></ion-card-title>
           </ion-card-header>
@@ -13,7 +19,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card (click)="quizInternaute()" style="height:80%">
+        <ion-card (click)="quizInternaute()" class="card">
           <ion-card-header>
             <ion-card-title><ion-icon name="people-outline"></ion-icon></ion-card-title>
           </ion-card-header>
@@ -26,7 +32,7 @@
     </ion-row>
       <ion-row>
       <ion-col>
-        <ion-card (click)="mesQuiz()" style="height:80%">
+        <ion-card (click)="mesQuiz()" class="card">
           <ion-card-header>
             <ion-card-title><ion-icon name="person-outline"></ion-icon></ion-card-title>
           </ion-card-header>
@@ -36,7 +42,7 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col><ion-card (click)="toCreationQuestion()" style="height:80%">
+      <ion-col><ion-card (click)="toCreationQuestion()" class="card">
         <ion-card-header>
           <ion-card-title><ion-icon name="help-outline"></ion-icon></ion-card-title>
         </ion-card-header>
@@ -48,7 +54,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="exit-outline" (click)="logout()"></ion-icon>

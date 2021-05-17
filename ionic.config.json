@@ -1,13 +1,8 @@
 {
   "name": "QwYnov",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
-  "type": "angular",
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "https://quizapi.io/api"
-    }
-  ]
+  "type": "angular"
 }

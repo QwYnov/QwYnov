@@ -4,7 +4,7 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
-    "ng": "ng -- --proxy-config src/proxy.conf.json",
+    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -20,15 +20,25 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
+    "@capacitor/android": "^2.4.7",
     "@capacitor/core": "2.4.7",
+    "@capacitor/ios": "^2.4.7",
+    "@ionic-native/core": "^5.33.0",
+    "@ionic-native/http": "^5.33.0",
+    "@ionic-native/push": "^5.33.0",
     "@ionic/angular": "^5.5.2",
+    "cordova-plugin-advanced-http": "^3.1.0",
+    "cordova-plugin-file": "^6.0.2",
     "firebase": "^8.4.2",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.0",
+    "phonegap-plugin-push": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.4",
+    "@angular-devkit/build-angular": "^0.1102.12",
     "@angular/cli": "~11.2.4",
     "@angular/compiler": "~11.2.0",
     "@angular/compiler-cli": "~11.2.0",
@@ -52,5 +62,8 @@
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {}
+  }
 }
